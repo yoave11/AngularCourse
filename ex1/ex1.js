@@ -77,21 +77,41 @@ function CreateMobilePhone(model, size, price, number) {
 }
 
 function MobilePhone(model, size, price, number) {
-    this.model = model
     this.size = size
-    this.price = price
     this.getNumber = function () {
         return this.number
     }
     this.setNumber = function (n) {
         this.number = n
     }
+    
+    let __price = 0
+    this.setPrice = function (newPrice) {
+        if (newPrice > __price)
+            __price = newPrice
+    }
+    this.getPrice = function () {
+        return __price
+    }
+
+    let __model = ''
+    this.setModel = function (newModel) {
+        if (newModel.length >= 4)
+            __model = newModel
+    }
+    this.getModel = function () {
+        return __model
+    }
+
+    this.setModel(model)
+    this.setPrice(price)
+    this.setNumber(number)
 }
 
-let phone1 = new MobilePhone('f', 2, 3,5)
-phone1.setNumber(90)
-console.log(`phone1 number ${phone1.getNumber()}`)
+let phone1 = new MobilePhone('f', 2, 3, 5)
+phone1.setModel('nokia 9000')
+console.log(`model - ${phone1.getModel()}`)
+phone1.setPrice(90)
+phone1.setPrice(80)
 
-let phone2 = CreateMobilePhone('f', 2, 3,5)
-phone2.setNumber(92)
-console.log(`phone2 number ${phone2.getNumber()}`)
+console.log(`price - ${phone1.getPrice()}`)
