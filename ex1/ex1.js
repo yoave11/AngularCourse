@@ -33,9 +33,9 @@ function stringObject(o) {
     for (let n in o) {
         if (typeof o[n] === 'object') {
             if (isArray) {
-                s += `${printObject(o[n])},\n`
+                s += `${stringObject(o[n])},\n`
             } else {
-                s += `${n}: ${printObject(o[n])}, \n`
+                s += `${n}: ${stringObject(o[n])}, \n`
             }
 
         }
@@ -58,8 +58,8 @@ function stringObject(o) {
     return s
 }
 const printObject = a => console.log(stringObject(a))
-
 printObject(myself)
+
 function CreateMobilePhone(model, size, price, number) {
     var res = {
         model,
@@ -87,3 +87,11 @@ function MobilePhone(model, size, price, number) {
         this.number = n
     }
 }
+
+let phone1 = new MobilePhone('f', 2, 3,5)
+phone1.setNumber(90)
+console.log(`phone1 number ${phone1.getNumber()}`)
+
+let phone2 = CreateMobilePhone('f', 2, 3,5)
+phone2.setNumber(92)
+console.log(`phone2 number ${phone2.getNumber()}`)
