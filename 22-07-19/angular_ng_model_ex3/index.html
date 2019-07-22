@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular Exercise2</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="controllers.js"></script>
+</head>
+
+<body>
+    <div ng-controller='formCtrl'>
+        <p>Name : <input type="text" id="nameTxt" ng-model="person.name"></p>
+        <p>Age : <input type="number" id="ageTxt" ng-model="person.age"></p>
+        <p>Password : <input type="password" id="passwordTxt" ng-model="person.password"></p>
+        <input type="radio" name="gender" value="male" checked ng-model="person.gender"> Male<br>
+        <input type="radio" name="gender" value="female" ng-model="person.gender"> Female<br>
+        <input type="radio" name="gender" value="other" ng-model="person.gender"> Other
+        <br><br>
+        <select id="carTxt" ng-model="person.car">
+            <option value="volvo">Volvo</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Honda">Honda</option>
+            <option value="Ford">Ford</option>
+        </select>
+        <br>
+
+        <br>
+        <input type="checkbox" name="vehicle1" value="Bike" id="hasBikeTxt" ng-model="person.hasBike"> I have a bike<br>
+        <br>
+        <div>
+            <pr>Person = {{person | json}}</pr>
+        </div>
+    </div>
+</body>
+
+</html>
