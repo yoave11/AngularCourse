@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="index.js"></script>
+    <script src="angular.js"></script>
+
+</head>
+
+<body ng-init="name='yoav'">
+    <p>name normal bind = <span ng-bind="name" /> </p>
+    <p>name curly bind = {{name}} </p>
+    <p ng-if="name=='yoav'">Hello {{name}}</p>
+</body>
+
+</html>
