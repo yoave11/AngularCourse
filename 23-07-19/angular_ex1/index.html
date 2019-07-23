@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular Exercise2</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="controllers.js"></script>
+</head>
+
+<body>
+    <p ng-controller='calcCtrl'>
+        <span>
+            <input type="number" id="ageTxt" ng-model="n1" ng-change="calc(action)">
+        </span>
+        <span>
+            {{action}}
+        </span>
+        <span>
+            <input type="number" id="ageTxt" ng-model="n2" ng-change="calc(action)">
+        </span>
+        <span>
+            =
+        </span>
+        <span ng-controller='resCtrl'>
+            {{res | number}}
+        </span>
+        <br>
+        <span ng-init="actions=['+','-','*','/']">
+            <button ng-repeat="a in actions" ng-click="calc(a)">{{a}}</button>
+        </span>
+
+    </p>
+    <div ng-controller='showCtrl'>
+        <button ng-click="update()">Show current</button>
+        {{res | number}}
+    </div>
+</body>
+
+</html>
