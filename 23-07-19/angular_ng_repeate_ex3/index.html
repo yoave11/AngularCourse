@@ -18,15 +18,15 @@
 
         <p ng-repeat="m in devices"> Name: <b>{{m.model}}</b> Color: <b>{{m.color}}</b> Price: <b>{{m.price}}</b></p>
 
-        <table border="1">
+        <table border="1" ng-init="order='model'">
             <tr style="background:lightyellow ; padding: 10px">
                 <th>#</th>
-                <th>MODEL</th>
-                <th>COLOR</th>
-                <th>PRICE</th>
+                <th><button ng-click="order='model'">MODEL</button></th>
+                <th><button ng-click="order='color'">COLOR</button></th>
+                <th><button ng-click="order='price'">PRICE</button></th>
                 <th></th>
             </tr>
-            <tr ng-repeat="m in devices">
+            <tr ng-repeat="m in devices | orderBy: order">
                 <td> {{$index}} </td>
                 <td>{{m.model}}</td>
                 <td>{{m.color}}</td>
@@ -44,10 +44,8 @@
         <p>ID = <input type="text" ng-model="index" /></p>
         <button ng-click="update({model, color, price}, index)">Update Device</button>
 
-
     </div>
-
-
+    <div ng-controller="footerCtrl">Number of items {{devices.length}}</div>
     <br>
 </body>
 
