@@ -1,7 +1,8 @@
 
-app.controller("inputCtrl", ($scope, inputService) => {
-    console.log(inputService)
+app.controller("inputCtrl", ($scope, inputService, historyService) => {
     $scope.inputs = inputService.inputs
+    $scope.$watch('inputs.a', (a) => historyService.updateA(a)) 
+    $scope.$watch('inputs.b', (b) => historyService.updateB(b)) 
 })
 
 app.controller("divCtrl", ($scope, inputService, errorService) => {
@@ -19,18 +20,22 @@ app.controller("sumCtrl", ($scope, inputService, errorService) => {
     $scope.getClass = () => {
         const resType = inputService.inputs.resType
         const res = inputService.inputs.a + inputService.inputs.b
-        console.log(`${resType}_${res > 0 ? 'pos' : 'neg'}`)
         return `${resType}_${res > 0 ? 'pos' : 'neg'}`
     }
 
 })
 
 app.controller("aCtrl", ($scope, aService) => {
-    console.log(aService)
     $scope.calculate = () => aService.get()
 })
 
 app.controller("bCtrl", ($scope, bService) => {
     $scope.calculate = () => bService.get()
+})
+
+app.controller("historyCtrl", ($scope, historyService) => {
+    $scope.aChanges = historyService.aChanges
+    $scope.bChanges = historyService.bChanges
+
 })
 

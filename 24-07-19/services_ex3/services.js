@@ -27,7 +27,6 @@ app.service('aService', function (inputService, errorService) {
 })
 
 app.factory('bService', function (inputService, errorService) {
-    console.log(errorService)
     return {
         get: () => {
             const b = inputService.inputs.b
@@ -37,4 +36,11 @@ app.factory('bService', function (inputService, errorService) {
             return getRange(b).reverse()
         }
     }
+})
+
+app.service('historyService', function () {
+    this.aChanges = []
+    this.updateA = a => this.aChanges.push(a)
+    this.bChanges = []
+    this.updateB = b => this.bChanges.push(b)
 })
