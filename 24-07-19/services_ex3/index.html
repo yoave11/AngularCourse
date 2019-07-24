@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="services.js"></script>
+
+    <script src="controllers.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+
+<body>
+    <div ng-controller="inputCtrl">
+        <h1>Inputs</h1>
+        <div>
+            a:
+            <span>
+                <input type="number" ng-model="inputs.a">
+            </span>
+        </div>
+        <div>
+            b:
+            <span>
+                <input type="number" ng-model="inputs.b">
+            </span>
+        </div>
+
+        <input type="radio" value="type1" ng-model="inputs.resType"> type1<br>
+        <input type="radio" value="type2" ng-model="inputs.resType"> type2
+    </div>
+
+    <div ng-controller="sumCtrl">
+        <h1>Sum</h1>
+        <div>
+            a+b= <span ng-class="getClass()">{{calculate()}}</span>
+        </div>
+
+    </div>
+    <div ng-controller="divCtrl">
+        <h1>Div</h1>
+        <div>
+            a/b= {{calculate()}}
+        </div>
+
+    </div>
+
+    <div ng-controller="aCtrl">
+        <h1>A range</h1>
+        <div>
+            {{calculate()}}
+        </div>
+    </div>
+
+    <div ng-controller="bCtrl">
+        <h1>B range</h1>
+        <div>
+            {{calculate()}}
+        </div>
+    </div>
+
+</body>
+
+</html>
