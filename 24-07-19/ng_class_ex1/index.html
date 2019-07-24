@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="controllers.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div ng-controller="colorCtrl">
+        <p>Name : <input type="text" ng-model="name"></p>
+        <p>email : <input type="text" ng-model="email"></p>
+        <p>Age : <input type="number" ng-model="age"></p>
+        <h1 ng-class="getClass()">Verification</h1>
+    </div>
+
+
+</body>
+
+</html>

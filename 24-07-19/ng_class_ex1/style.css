@@ -1,0 +1,15 @@
+.empty {
+    color: red
+}
+
+.partial {
+    color: orange
+}
+
+.underage {
+    color: blue
+}
+
+.filled {
+    color: green
+}
