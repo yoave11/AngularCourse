@@ -1,0 +1,1 @@
+const secondModule = angular.module('secondModule', [])
