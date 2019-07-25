@@ -1,0 +1,13 @@
+.correct {
+    pointer-events: none;
+    background-color: green;
+}
+
+.selected {
+    pointer-events: none;
+    background-color: gray;
+}
+
+.normal {
+    background-color: yellow;
+}

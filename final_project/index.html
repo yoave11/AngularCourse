@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="services.js"></script>
+
+    <script src="controllers.js"></script>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div ng-controller="cardCtrl">
+        <div ng-show='!gameStarted'>
+            <input type="number" ng-model="numberOfCards" required>
+            <button ng-click="startGame()">
+                Select Number Of Card!
+            </button>
+        </div>
+        <div>
+            <span ng-repeat="card in cardData.data.allCards track by $index">
+                <button ng-click="select($index)" ng-class="getCardClass($index, card)">
+                    <span ng-if="cardGuesses.includes($index) || cardData.data.found.includes(card)">
+                        {{card}}
+                    </span>
+                    <span ng-if="!(cardGuesses.includes($index) || cardData.data.found.includes(card))">
+                        X
+                    </span>
+                </button>
+            </span>
+        </div>
+
+
+        <div>
+            <button ng-show='gameStarted' ng-click="reset()">reset</button>
+        </div>
+
+    </div>
+    <div ng-controller="scoreCtrl">
+        <div>
+            <h2>Guesses: {{score.data.guesses}}</h2>
+        </div>
+        <div>
+            <h2>Score: {{score.data.found.length}}</h2>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
