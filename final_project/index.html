@@ -46,6 +46,10 @@
         <div>
             <h2>Score: {{score.data.found.length}}</h2>
         </div>
+
+        <div ng-show='score.data.guesses && score.data.found.length * 2 === score.data.allCards.length'>
+            <h1>CONGRATULATIONS! YOU ONE THE GAME!!</h1>
+        </div>
     </div>
 
 
