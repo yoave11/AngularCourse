@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="services.js"></script>
+
+    <script src="controllers.js"></script>
+</head>
+
+<body>
+    <div ng-controller="postsCtrl">
+        <table border="1">
+            <tr style="background:lightyellow ; padding: 10px">
+                <th>POST ID</th>
+
+                <th>USER ID</th>
+                <th>TITLE</th>
+                <th>BODY</th>
+            </tr>
+            <tr ng-repeat="p in data.posts">
+                <td> {{p.id}} </td>
+                <td> {{p.userId}} </td>
+                <td>{{p.title}}</td>
+                <td>{{p.body}}</td>
+            </tr>
+        </table>
+
+        <div>
+            <input type="text" ng-model="id">
+            <button ng-click="fetchPost()">
+                Fetch by Id
+            </button>
+        </div>
+        <div ng-if="!!data.post">
+            <h1>Answer</h1>
+            <div>
+                <div>
+                    Body: <span> {{data.post.id}} </span>
+
+                </div>
+                <div>
+                    UserId: <span> {{data.post.userId}} </span>
+                </div>
+                <div>
+                    Title: <span>{{data.post.title}}</span>
+                </div>
+                <div>
+                    Body: <span>{{data.post.body}}</span>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!!error.message">
+            <h1>Error</h1>
+            <div>
+                <span> {{error.message}} </span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
